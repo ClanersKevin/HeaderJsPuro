@@ -1,8 +1,7 @@
-const root = document.querySelector('#root').getAttribute('data-store');
+const divHeaderContainer = document.querySelector('#divHeaderContainer').getAttribute('data-store');
 
 const a = document.createElement('a');
 a.setAttribute("id", "link");
-a.setAttribute("target", "_blank");
 a.setAttribute("target", "_blank");
 
 const div = document.createElement('div'); 
@@ -10,13 +9,13 @@ div.setAttribute("id", "container");
 
 a.appendChild(div);
 
-document.querySelector('#root').appendChild(a);
+document.querySelector('#divHeaderContainer').appendChild(a);
 
 const response = await fetch('https://s3.us-west-2.amazonaws.com/www.claners.com/uploads/site/cintillo.json');
 const data = await response.json();
 
 Object.keys(data).map(function (key) {
-    if (key === root)
+    if (key === divHeaderContainer)
     {
         const container = document.getElementById("container");
         container.innerHTML = data[key].title;
@@ -38,6 +37,6 @@ Object.keys(data).map(function (key) {
 
         const body = document.getElementById("body")
         body.style.margin = "0";
-        link.setAttribute("href", `https://www.${root}.com${data[key].url}`);
+        link.setAttribute("href", `https://www.${divHeaderContainer}.com${data[key].url}`);
     }
 })
