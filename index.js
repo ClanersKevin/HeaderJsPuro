@@ -35,8 +35,8 @@ Object.keys(data).map(function (key) {
         linkSiteBanner.style.textDecoration = "none";
         linkSiteBanner.style.boxSizing = "border-box";
 
-        const body = document.getElementById("body")
-        body.style.margin = "0";
+        const bodyBanner = document.getElementById("bodyBanner")
+        bodyBanner.style.margin = "0";
         linkSiteBanner.setAttribute("href", `https://www.${headerContainerBanner}.com${data[key].url}`);
     }
 })
